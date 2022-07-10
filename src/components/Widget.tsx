@@ -67,16 +67,10 @@ export default function Widget() {
     }
 
     function handleChangeUser(text){
+        setError(false);
         setText(text);
     }
 
-    function setTable (table){
-        if (table === "User"){
-            return (
-                <RepoTable data={repo}   findBranchs={this.findBranchs}/>
-            )
-        }
-    }
     return (
         <div className="space-y-12">
             <div className="font-Montserrat text-4xl flex flex-wrap justify-center w-full">
@@ -85,10 +79,10 @@ export default function Widget() {
             </div>
             <div className="pt-10">
             { error ?
-                    <p className="w-full flex flex-wrap justify-center text-red-600">Esse usuário não existe</p>
+                    <p className="w-full flex flex-wrap justify-center text-red-600">O usuário {text} não existe</p>
                     :
-                    <>
-                    </>
+                    <p className="w-full h-6 ">
+                    </p>
             }
             <div className="flex justify-center ">
                 <input 
