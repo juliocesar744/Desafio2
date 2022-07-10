@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { BranchsTable } from "./BranchsTable";
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: ''
 })
 
 export function RepoTable(props) {
