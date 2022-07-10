@@ -1,0 +1,4 @@
+Já na página inicial aparecera o campo de pesquisa, digite algum username do github 
+existente(ou não) e verifique todos os seus repositórios públicos, podendo clicar em 
+qualquer repositório e ver suas branchs, e em qualquer branch para ver a quantidade
+de commits daquela branch.
