@@ -5,7 +5,7 @@ import { BranchsTable } from "./Tables/BranchsTable";
 import { CommitsTable } from "./Tables/CommitsTable";
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: ''
 })
 
 export default function Widget() {
@@ -37,33 +37,24 @@ export default function Widget() {
         let findRepo = repo.find(x => x.id === id);
         setRepoSelected(findRepo);
 
-        console.log("repo", repo)
         let owner = findRepo.owner.login;
         let name = findRepo.name;
-        try {
-            await octokit.request(`GET /repos/${owner}/${name}/branches`, {
-            }).then((response) => {
-                setBranchs(response.data);
-                setNameTable("Branch");
-            })
-        } catch (error){
-            console.log("error", error)
-        }
+        await octokit.request(`GET /repos/${owner}/${name}/branches`, {
+        }).then((response) => {
+            setBranchs(response.data);
+            setNameTable("Branch");
+        })
     }
 
     async function findCommits(nameBranch) {
         let owner = repoSelected.owner.login;
         let name = repoSelected.name;
         let branch = nameBranch;
-        try {
-            await octokit.request(`GET /repos/${owner}/${name}/compare/${branch}...master`, {
-            }).then((response) => {
-                setCommits(response.data);
-                setNameTable("Commit");
-            })
-        } catch (error){
-            console.log("error", error)
-        }
+        await octokit.request(`GET /repos/${owner}/${name}/compare/${branch}...master`, {
+        }).then((response) => {
+            setCommits(response.data);
+            setNameTable("Commit");
+        })
     }
 
     function handleChangeUser(text){

@@ -1,14 +1,7 @@
-import { Octokit, App } from "octokit";
-import React, { useState } from "react";
-import { BranchsTable } from "./BranchsTable";
-
-const octokit = new Octokit({
-    auth: ''
-})
+import React from "react";
 
 export function RepoTable(props) {
     const repo = props.data;
-    console.log("porps", props)
 
     return (
         <div className="flex flex-col">
