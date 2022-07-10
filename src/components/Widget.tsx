@@ -21,7 +21,6 @@ export default function Widget() {
     async function findUser() {
         try {
         await octokit.request(`GET /users/${text}/repos`, {
-            username: 'USERNAME'
         }).then((response) => {
             setError(false);
             setRepo(response.data);
